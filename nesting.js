@@ -50,8 +50,16 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
-
+function employeeUpdater() {
+  for(let i = 0; i < employees.length; i++){
+    if(employees[i]['firstName'] === 'Theo') {
+      employees.splice(i,1)
+    }
+    if(employees[i]['firstName'] === 'Lorie'){
+      employees[i]['department'] = 'HR'
+    }
+  } return employees;
+ }
 
 
 ////////// PROBLEM 2 //////////
@@ -68,8 +76,15 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-//Code Here
-
+function removeDuplicates(arr) {
+  for (let i=arr.length-1;i>=0;i--) {
+    for(x=0;x<=arr.length;x++) {
+      if (arr[i]===arr[x] && x !== i) {
+        arr.splice(i,1)
+      }
+    }
+  } return arr;
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -96,9 +111,9 @@ var cat = {
     2. Assign fluffy2ndFriend the name of Fluffy's 2nd friend.
 */
 
-//Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1]['name'];
 
 
 
@@ -138,9 +153,18 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
-
-
+function recordCleaner(obj) {
+  for (let key in obj) {
+   if (key === 'accidents') {
+     for (i=0;i<=obj[key].length-1;i++) {
+       obj[key][i].atFaultForAccident = false
+     }
+   }
+  
+ }
+ return obj
+} 
+recordCleaner(myCar)
 
 ////////// PROBLEM 5 //////////
 
@@ -157,6 +181,22 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
     4. Return the modified numsArr.
 */
 
-//Code Here
+function looper () {
+  for (i=0;i<numsArr.length;i++) {
+    // console.log(numsArr[i])
+    for(x=0;x<numsArr[i].length;x++) {
+      // console.log(arr[i][x])
+       if (numsArr[i][x] === 1) {
+        numsArr[i].splice(x, 1, 'odd')
+       } else if (numsArr[i][x] % 2 === 0) {
+        numsArr[i].splice(x,1, 'even')
+       } else {
+        numsArr[i].splice(x, 1, 'odd')
+       }
+    } 
+  } return numsArr
+ }
 
+// looper(numsArr)
 
+// looper(numsArr)
